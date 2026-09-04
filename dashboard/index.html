@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DroneTV — Student Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">✈</div>
+        <span>Drone<span>TV</span></span>
+      </div>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="../login/home.html" class="nav-item active" data-section="Overview"><span class="nav-icon">⊙</span>Overview</a>
+        <a href="../course/course.html" class="nav-item" data-section="My Courses"><span class="nav-icon">▤</span>My Courses</a>
+        <a href="#" class="nav-item" data-section="Progress Logs"><span class="nav-icon">⊞</span>Progress Logs</a>
+        <a href="#" class="nav-item" data-section="Certificates"><span class="nav-icon">♙</span>Certificates</a>
+        <a href="#" class="nav-item" data-section="Settings"><span class="nav-icon">⚙</span>Settings</a>
+      </nav>
+
+      <a href="../login/login.html" class="logout" id="logoutBtn"><span>↪</span> Logout</a>
+    </aside>
+
+    <main class="content">
+      <header class="topbar">
+        <div>
+          <h1>Welcome back, Alex</h1>
+          <p>Your certified remote pilot license coursework is waiting. Next flight workshop is tomorrow!</p>
+        </div>
+        <div class="profile">
+          <div class="profile-copy">
+            <strong>Alex Mercer</strong>
+            <span>Student Pilot #4028</span>
+          </div>
+          <div class="avatar">AM</div>
+        </div>
+      </header>
+
+      <section class="stats-grid">
+        <article class="stat-card"><strong>4</strong><span>Courses Enrolled</span></article>
+        <article class="stat-card"><strong>2</strong><span>Completed Courses</span></article>
+        <article class="stat-card"><strong>48h</strong><span>Hours Learned</span></article>
+        <article class="stat-card"><strong>1</strong><span>Active Certificates</span></article>
+        <article class="flight-alert" id="flightAlert">
+          <div class="alert-title">FLIGHT LAB ALERT</div>
+          <strong>Tomorrow @ 09:00 AM</strong>
+          <span>Location: Airspace Academy Field</span>
+          <button id="dismissAlert" aria-label="Dismiss flight alert">×</button>
+        </article>
+      </section>
+
+      <div class="dashboard-grid">
+        <div class="left-column">
+          <section>
+            <div class="section-heading"><h2>Continue Learning</h2></div>
+
+            <article class="course-card">
+              <div class="course-thumb thumb-one"><span>DRONE<br>LAB</span></div>
+              <div class="course-info">
+                <h3>DGCA Certified Remote Pilot License (Micro/Small)</h3>
+                <p>Last lesson: 104 Weather &amp; Airspace Regulations</p>
+                <div class="progress-row">
+                  <div class="progress"><span style="width:75%"></span></div>
+                  <b>75%</b>
+                </div>
+              </div>
+              <button class="outline-btn resume">Resume</button>
+            </article>
+
+            <article class="course-card">
+              <div class="course-thumb thumb-two"><span>GIS<br>MAP</span></div>
+              <div class="course-info">
+                <h3>Advanced GIS Mapping &amp; Aerial Surveying</h3>
+                <p>Last lesson: 6B Orthomosaic Mesh Generation</p>
+                <div class="progress-row">
+                  <div class="progress"><span style="width:40%"></span></div>
+                  <b>40%</b>
+                </div>
+              </div>
+              <button class="outline-btn resume">Resume</button>
+            </article>
+          </section>
+
+          <section class="sessions">
+            <div class="section-heading"><h2>Upcoming Academic Sessions</h2></div>
+
+            <article class="session-card">
+              <div class="date"><b>OCT</b><span>24 10:00 AM</span></div>
+              <div class="session-info">
+                <h3>Session 15: Mock Exam Prep &amp; Radio Operations</h3>
+                <p>Live Webinar with Mr. Carl S. Roy</p>
+              </div>
+              <button class="join-btn">Join Class</button>
+            </article>
+
+            <article class="session-card">
+              <div class="date"><b>OCT</b><span>25 09:00 AM</span></div>
+              <div class="session-info">
+                <h3>Field Workshop 4: Solo Flight Maneuvers</h3>
+                <p>On-Field Hands-On Session</p>
+              </div>
+              <button class="join-btn">Join Class</button>
+            </article>
+          </section>
+        </div>
+
+        <aside class="activity-card">
+          <h2>Recent Academic Activity</h2>
+
+          <div class="activity">
+            <i></i><div><span>Today, 2:40 PM</span><strong>Completed Quiz 4</strong><small>Aviation Meteorology - Passed with 90%</small></div>
+          </div>
+          <div class="activity">
+            <i></i><div><span>Yesterday, 11:15 AM</span><strong>Uploaded Flight Log</strong><small>Logged 2.5 hours flight time on DJI Inspire 2</small></div>
+          </div>
+          <div class="activity">
+            <i></i><div><span>Oct 21, 4:30 PM</span><strong>Certificate Unlocked</strong><small>Cinematography Workshop - Level 1</small></div>
+          </div>
+          <div class="activity">
+            <i></i><div><span>Oct 20, 10:00 AM</span><strong>Enrolled in New Course</strong><small>Advanced GIS Mapping &amp; Aerial Surveying</small></div>
+          </div>
+
+          <div class="activity-summary">
+            <h3>AVIATION LOG SUMMARY</h3>
+            <div><span>Solo Hours Logged</span><b>14.5 hrs</b></div>
+            <div><span>Copilot Hours Logged</span><b>33.5 hrs</b></div>
+            <div><span>Fail-Safe Incident Rate</span><b class="success">0.0% (Perfect)</b></div>
+          </div>
+        </aside>
+      </div>
+
+      <div class="toast" id="toast"></div>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+<script>
+  const toast = document.getElementById('toast');
+
+function showToast(message) {
+  toast.textContent = message;
+  toast.classList.add('show');
+  clearTimeout(window.toastTimer);
+  window.toastTimer = setTimeout(() => toast.classList.remove('show'), 2200);
+}
+
+document.querySelectorAll('.nav-item').forEach(item => {
+  item.addEventListener('click', () => {
+    document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+    item.classList.add('active');
+    showToast(`${item.dataset.section} selected`);
+  });
+});
+
+document.querySelectorAll('.resume').forEach(button => {
+  button.addEventListener('click', () => {
+    const title = button.closest('.course-card').querySelector('h3').textContent;
+    showToast(`Resuming: ${title}`);
+  });
+});
+
+document.querySelectorAll('.join-btn').forEach(button => {
+  button.addEventListener('click', () => showToast('Class room link opened'));
+});
+
+document.getElementById('dismissAlert').addEventListener('click', () => {
+  document.getElementById('flightAlert').style.display = 'none';
+  showToast('Flight lab alert dismissed');
+});
+
+document.getElementById('logoutBtn').addEventListener('click', () => {
+  showToast('Demo logout action');
+});
+
+</script>
+</html>

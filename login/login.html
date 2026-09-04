@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>DroneTV - Login</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+
+<body>
+
+   <div class="login-container">
+
+    <!-- LEFT SIDE -->
+    <div class="visual-panel">
+
+        
+
+        <div class="visual-content">
+
+        </div>
+
+    </div>
+
+        <!-- ================= RIGHT PANEL ================= -->
+
+        <section class="form-panel">
+
+            <div class="form-container">
+
+                <h2>Welcome back</h2>
+
+                <p class="subtitle">
+                    Enter your credentials to access your pilot dashboard.
+                </p>
+
+
+                <!-- Login Form -->
+
+                <form id="loginForm">
+
+                    <!-- Email -->
+
+                    <div class="form-group">
+
+                        <div class="form-label-row">
+
+                            <label for="email">
+                                Email Address
+                            </label>
+
+                        </div>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="name@company.com"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- Password -->
+
+                    <div class="form-group">
+
+                        <div class="form-label-row">
+
+                            <label for="password">
+                                Password
+                            </label>
+
+                            <a href="#" class="forgot-password">
+                                Forgot Password?
+                            </a>
+
+                        </div>
+
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            placeholder="••••••••••"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- Sign In -->
+
+                    <button href="../login/login.html"
+                        type="submit"
+                        class="signin-btn">
+                        Sign In
+                    </button>
+
+                </form>
+
+
+                <!-- Divider -->
+
+                <div class="divider">
+                    OR CONNECT WITH
+                </div>
+
+
+                <!-- Social Login -->
+
+                <div class="social-buttons">
+
+                    <button class="social-btn" type="button">
+                        <span class="google-icon">G</span>
+                        Google
+                    </button>
+
+                    <button class="social-btn" type="button">
+                        <span class="linkedin-icon">in</span>
+                        LinkedIn
+                    </button>
+
+                </div>
+
+
+                <!-- Register -->
+
+                <div class="create-account">
+
+                    New to DroneTV?
+
+                    <a href="#">
+                        Create an Account
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </div>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script>
+
+        const loginForm = document.getElementById("loginForm");
+
+        loginForm.addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            const email =
+                document.getElementById("email").value;
+
+            const password =
+                document.getElementById("password").value;
+
+            if (email === "" || password === "") {
+
+                alert("Please enter email and password.");
+
+                return;
+            }
+
+            alert("Login submitted successfully!");
+
+            console.log("Email:", email);
+            console.log("Password:", password);
+            window.location.href = "../dashboard/index.html";
+
+        });
+
+    </script>
+
+</body>
+</html>
